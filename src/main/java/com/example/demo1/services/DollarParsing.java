@@ -1,4 +1,4 @@
-package com.example.demo1;
+package com.example.demo1.services;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,7 +12,7 @@ import java.io.IOException;
 @EnableScheduling
 @Service
 public class DollarParsing {
-    String dollarExchangeRate;
+    public String dollarExchangeRate;
 
     @Scheduled(fixedDelay = 10000)
     public void parsing() {
