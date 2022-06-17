@@ -16,17 +16,18 @@ public class DollarParsing {
 
     @Scheduled(fixedDelay = 10000)
     public void parsing() {
-        Document doc = null;
         try {
-            doc = Jsoup.connect("https://www.cbr.ru/")
+            Document doc = Jsoup.connect("https://www.cbr.ru/")
                     .userAgent("Chrome/102.0.5005.61 Safari/537.36")
                     .get();
-        } catch (IOException io) {
+            Elements dollar = doc.select("#content > div > div > div > div.home-main > div.home-main_aside >" +
+                    " div > div.main-indicator_rates > div > div:nth-child(2) > div:nth-child(3)");
+            if (!dollar.text().isEmpty()) {
+                dollarExchangeRate = dollar.text();
+            }
+        }catch(IOException io) {
             io.printStackTrace();
         }
-        Elements dollar = doc.select("#content > div > div > div > div.home-main > div.home-main_aside >" +
-                " div > div.main-indicator_rates > div > div:nth-child(2) > div:nth-child(3)");
-        dollarExchangeRate = dollar.text();
         System.out.println(dollarExchangeRate);
     }
 }
