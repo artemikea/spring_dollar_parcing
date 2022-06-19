@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс доллара</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/logout">выйти</a></li>
+    </ul>
+    <p th:text="'Курс доллара: ' + ${dollarExchangeRate}"></p>
+</body>
+</html>

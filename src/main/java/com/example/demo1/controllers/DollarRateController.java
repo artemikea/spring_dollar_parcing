@@ -14,9 +14,14 @@ public class DollarRateController {
         this.dollarParsing = dollarParsing;
     }
 
-    @GetMapping("/dollarRate")
-    public String index(Model model) {
-        model.addAttribute("dollarExchangeRate", dollarParsing.dollarExchangeRate);
+    @GetMapping
+    public String index() {
         return "index";
+    }
+
+    @GetMapping("/dollarRate")
+    public String dollar(Model model) {
+        model.addAttribute("dollarExchangeRate", dollarParsing.dollarExchangeRate);
+        return "dollarRate";
     }
 }

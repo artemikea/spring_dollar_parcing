@@ -24,6 +24,7 @@ public class DollarParsing {
                     " div > div.main-indicator_rates > div > div:nth-child(2) > div:nth-child(3)");
             if (!dollar.text().isEmpty()) {
                 dollarExchangeRate = dollar.text();
+                System.out.println("Перезаписан " + dollarExchangeRate);
             }
         }catch(IOException io) {
             io.printStackTrace();
